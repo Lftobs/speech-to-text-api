@@ -4,14 +4,13 @@ import threading
 import redis
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 from faster_whisper import WhisperModel
 from typing import Optional, Dict
 
 class TaskManager:
     def __init__(self):
         self.tasks: Dict[str, Dict] = {}
-        self.redis_client = redis.Redis(host='localhost', port=6379, db=0)
+        self.redis_client = redis.Redis(host=os.getenv('REDIS_URL'), port=6379, db=0)
         self.model = WhisperModel('base', device='cpu', compute_type='int8')
 
     def process_transcription(self, task_id: str, file_path: str, language: Optional[str] = None):

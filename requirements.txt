@@ -1,0 +1,6 @@
+aiofiles
+slowapi
+redis
+rq
+fastapi
+faster-whisper
