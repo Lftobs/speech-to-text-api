@@ -2,5 +2,5 @@ aiofiles
 slowapi
 redis
 rq
-fastapi
+fastapi[standard]
 faster-whisper
