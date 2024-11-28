@@ -36,4 +36,4 @@ RUN useradd -m appuser
 USER appuser
 
 # Use uvicorn as the ASGI server
-CMD ["fastapi", "dev", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--reload","--host", "0.0.0.0", "--port", "8000"]
