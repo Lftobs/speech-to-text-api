@@ -1,0 +1,5 @@
+.env
+tmp/
+alt*
+__pycache__/
+dump*
