@@ -89,7 +89,7 @@ def main():
     
     monitor = APIHealthMonitor(
         api_url=api_url,
-        check_interval=int(os.getenv('CHECK_INTERVAL', 300)),
+        check_interval=int(os.getenv('CHECK_INTERVAL', 80)),
         max_retries=int(os.getenv('MAX_RETRIES', 3))
     )
     
