@@ -11,6 +11,7 @@ WORKDIR /app
 
 # Install system dependencies for faster-whisper and audio processing
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt install redis-server \
     build-essential \
     ffmpeg \
     git \
