@@ -39,11 +39,6 @@ EXPOSE 8000
 RUN useradd -m appuser
 USER appuser
 
-RUN echo '#!/bin/bash' > start.sh && \
-    echo 'python health_check.py &' >> start.sh && \
-    echo 'uvicorn backend:app --host 0.0.0.0 --port $PORT' >> start.sh
-
-# Make the start script executable
-RUN chmod +x start.sh
 # Use uvicorn as the ASGI server
-# CMD ["uvicorn", "main:app", "--reload","--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "health_check.py"]
+CMD ["uvicorn", "main:app", "--reload","--host", "0.0.0.0", "--port", "8000"]
