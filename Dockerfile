@@ -23,8 +23,6 @@ COPY requirements.txt .
 # Start Redis server
 RUN service redis-server start
 
-RUN redis-cli ping
-
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
