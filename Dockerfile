@@ -39,10 +39,7 @@ EXPOSE 8000
 RUN useradd -m appuser
 USER appuser
 
-RUN echo '#!/bin/bash\n\
-python health_check.py & \
-uvicorn backend:app --host 0.0.0.0 --port $PORT\
-' > start.sh
+RUN echo '#!/bin/bash\npython health_check.py & \nuvicorn backend:app --host 0.0.0.0 --port $PORT' > start.sh
 
 # Make the start script executable
 RUN chmod +x start.sh
